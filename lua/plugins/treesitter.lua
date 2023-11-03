@@ -3,8 +3,8 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	opts = {
-		ensure_installed = {"lua", "python", "c", "cpp"},
-		highlight = { enable = true, disable = {}, },
+		ensure_installed = {"lua", "python", "c", "cpp", "markdown", "markdown_inline", "bash"},
+		highlight = { enable = true, disable = {}, additional_vim_regex_highlighting = { "markdown" },},
 		indent = { enable = true },
 	},
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
