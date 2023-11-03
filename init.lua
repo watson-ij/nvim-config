@@ -21,6 +21,7 @@ opt.clipboard = "unnamedplus"
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.number = true -- Print line number
+opt.relativenumber = true
 opt.grepprg = "rg --vimgrep"
 opt.termguicolors = true -- True color support
 vim.g.markdown_recommended_style = 0
