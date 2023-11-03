@@ -36,3 +36,17 @@ opt.spelllang = { "en" }
 local opts = {}
 require("lazy").setup({{import = 'plugins'},{import = 'plugins.extra'},}, opts)
 vim.cmd[[colorscheme tokyonight]]
+
+-- autocmds
+
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup("highlight_yank"),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
