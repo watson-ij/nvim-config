@@ -17,7 +17,10 @@ return {
       {"<leader>os", "<cmd>ObsidianSearch<CR>", desc="search notes"},
     },
     opts = {
-      dir = "~/obsidian-vault"
+      dir = "~/obsidian-vault",
+      daily_notes = {
+	folder = "daily",
+      },
     }
   }
 }
