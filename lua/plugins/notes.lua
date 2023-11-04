@@ -10,6 +10,7 @@ return {
       load = {
 	["core.defaults"] = {},
 	["core.concealer"] = {},
+	["core.journal"] = {},
 	["core.dirman"] = {
 	  config = {
 	    workspaces = {
