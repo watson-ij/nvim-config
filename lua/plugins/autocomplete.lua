@@ -7,6 +7,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
     },
     opts = function ()
@@ -20,6 +21,7 @@ return {
 	  ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 	  ["<C-f>"] = cmp.mapping.scroll_docs(4),
 	  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+	  ["<C-e>"] = cmp.mapping.abort(),
 	  ["<C-space>"] = cmp.mapping.complete(),
 	  ["<CR>"] = cmp.mapping.confirm(),
 	},
