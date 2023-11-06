@@ -10,7 +10,7 @@ return {
       "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information      
     },
     keys = {
-      {"<leader>d", "<cmd>Neotree position=current<CR>", desc='neotree(ntwr)'},
+      -- {"<leader>d", "<cmd>Neotree position=current<CR>", desc='neotree(ntwr)'},
       {
 	"<leader>fe",
 	function ()

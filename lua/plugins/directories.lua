@@ -5,6 +5,9 @@ return {
     opts = {
       default_file_explorer=true,
       columns = {"icon", "permissions", "size", "mtime"},
+      keymaps = {
+	["q"] = "actions.close",
+      },
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons"
