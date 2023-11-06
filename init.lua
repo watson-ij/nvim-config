@@ -35,7 +35,7 @@ opt.spelllang = { "en" }
 -- looks under lua/plugins for plugin setups
 local opts = {}
 require("lazy").setup({{import = 'plugins'},{import = 'plugins.extra'},}, opts)
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme nightfox]]
 
 -- autocmds
 
