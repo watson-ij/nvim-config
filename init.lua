@@ -32,10 +32,16 @@ opt.smartindent = true -- Insert indents automatically
 opt.ignorecase = true -- Ignore case
 opt.spelllang = { "en" }
 
+hostname = vim.fn.hostname()
+
 -- looks under lua/plugins for plugin setups
 local opts = {}
 require("lazy").setup({{import = 'plugins'},{import = 'plugins.extra'},}, opts)
-vim.cmd[[colorscheme nightfox]]
+if hostname == 'ArchBeasty' then
+  vim.cmd[[colorscheme dayfox]]
+else
+  vim.cmd[[colorscheme nightfox]]
+end
 
 -- autocmds
 
