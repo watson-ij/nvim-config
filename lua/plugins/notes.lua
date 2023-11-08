@@ -1,7 +1,25 @@
+
+local function get_diary ()
+  local filename = '/home/iyan/org-roam/daily/' .. os.date('%Y_%m_%d') .. '.org'
+  -- ensure file exists
+  local f = io.open(filename, 'r')
+  if f == nil then
+    f = io.open(filename, 'w')
+    f:close()
+  else
+    f:close()
+  end
+  vim.cmd('e ' .. filename)
+end
+
 return {
   {
     "nvim-orgmode/orgmode",
-    event = "VeryLazy",
+    lazy = false,
+    keys = {
+      {"<leader>o", desc="orgmode"},
+      {"<leader>ot", get_diary, desc="today's file"},
+    },
     config = function ()
       require("orgmode").setup_ts_grammar()
       require("nvim-treesitter.configs").setup({
@@ -57,12 +75,12 @@ return {
       vim.fn.expand "BufNewFile ~/obsidian-vault/**.md",
     },
     keys = {
-      {"<leader>o", desc="obsidian"},
-      {"<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", desc="switch to note"},
-      {"<leader>ot", "<cmd>ObsidianToday<CR>", desc="today's note"},
-      {"<leader>oy", "<cmd>ObsidianYesterday<CR>", desc="yesterday's note"},
-      {"<leader>os", "<cmd>ObsidianSearch<CR>", desc="search notes"},
-      {"<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc="search notes"},
+--      {"<leader>o", desc="obsidian"},
+--      {"<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", desc="switch to note"},
+--      {"<leader>ot", "<cmd>ObsidianToday<CR>", desc="today's note"},
+--      {"<leader>oy", "<cmd>ObsidianYesterday<CR>", desc="yesterday's note"},
+--      {"<leader>os", "<cmd>ObsidianSearch<CR>", desc="search notes"},
+--      {"<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc="search notes"},
     },
     opts = {
       dir = "~/obsidian-vault",
