@@ -1,3 +1,4 @@
+local utils = require"ijw-utils"
 return {
   {
     "nvimdev/dashboard-nvim",
@@ -14,7 +15,7 @@ return {
 	    {action = "Telescope live_grep", desc="Grep", key="g"},
 	    {action = "Telescope find_files search_dirs=~/.config/nvim", desc="Config", key="c"},
 	    {action = "Neorg index", desc="Neorg Index", key="i"},
-	    {action = "Neorg journal today", desc="Today", key="t"},
+	    {action = utils.get_diary, desc="Today", key="t"},
 	    {action = "Neorg journal yesterday", desc="Yesterday", key="y"},
 	    {action = "Lazy", desc="Lazy", key="l"},
 	    {action = "qa", desc="Quit", key="q"},

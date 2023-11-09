@@ -1,23 +1,11 @@
-
-local function get_diary ()
-  local filename = '/home/iyan/org-roam/daily/' .. os.date('%Y_%m_%d') .. '.org'
-  -- ensure file exists
-  local f = io.open(filename, 'r')
-  if f == nil then
-    f = io.open(filename, 'w')
-    f:close()
-  else
-    f:close()
-  end
-  vim.cmd('e ' .. filename)
-end
+local utils = require"ijw-utils"
 
 return {
   {
     "nvim-orgmode/orgmode",
     keys = {
       {"<leader>o", desc="orgmode"},
-      {"<leader>ot", get_diary, desc="today's file"},
+      {"<leader>ot", utils.get_diary, desc="today's file"},
     },
     event = {"VeryLazy", "BufReadPre", "BufNewFile"},
     config = function ()
