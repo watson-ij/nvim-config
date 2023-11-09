@@ -15,11 +15,11 @@ end
 return {
   {
     "nvim-orgmode/orgmode",
-    lazy = false,
     keys = {
       {"<leader>o", desc="orgmode"},
       {"<leader>ot", get_diary, desc="today's file"},
     },
+    event = {"VeryLazy", "BufReadPre", "BufNewFile"},
     config = function ()
       require("orgmode").setup_ts_grammar()
       require("nvim-treesitter.configs").setup({
