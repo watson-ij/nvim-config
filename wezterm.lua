@@ -8,7 +8,11 @@ end
 
 
 config.font = wezterm.font ('CaskaydiaCove Nerd Font')
-config.font_size = 16
+if wezterm.hostname() == 'ArchBeasty' then
+  config.font_size = 14
+else
+  config.font_size = 16
+end
 config.color_scheme = 'nightfox'
 
 -- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
