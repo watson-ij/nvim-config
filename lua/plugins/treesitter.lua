@@ -1,15 +1,16 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/treesitter.lua
 return {
   "nvim-treesitter/nvim-treesitter",
+  version = false,
   build = ":TSUpdate",
   opts = {
-    ensure_installed = {"lua", "python", "c", "cpp", "markdown", "markdown_inline", "bash"},
+    ensure_installed = {"lua", "python", "c", "cpp", "markdown", "markdown_inline", "bash", "diff", "javascript", "html", "yaml", "json", "jsonc", "toml", "xml"},
     highlight = { enable = true, disable = {}, additional_vim_regex_highlighting = { "markdown" },},
     indent = { enable = true, disable = {"org", "orgmode"} },
   },
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-  lazy = true,
-  event = { "BufReadPost", "VeryLazy" },
+  event = { "BufReadPost", "VeryLazy", },
+  lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
   init = function(plugin)
     -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
     -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which

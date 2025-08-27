@@ -1,33 +1,20 @@
 return {
   {
-    "neovim/nvim-lspconfig",
-    events = {"BufReadPre","VeryLazy"},
-    dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-      { "folke/neodev.nvim", opts = {} },
-      "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-    },
+    "mason-org/mason-lspconfig.nvim",
     opts = {
-
+      ensure_installed = { "lua_ls" },
     },
-    config = function(_, opts)
-    end
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
   {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  },
+  {
+    "mason-org/mason.nvim",
     build = ":MasonUpdate",
-    keys = {{"<leader>cm", "<cmd>Mason<cr>", desc="Mason"}},
-    opts = { ensure_installed = "", },
-    config = function (_, opts)
-      require("mason").setup(opts)
-      require("mason-lspconfig").setup({ensure_installed={"lua_ls", }})
-      require("mason-lspconfig").setup_handlers {
-	function(server_name)
-	  require ("lspconfig")[server_name].setup {}
-	end
-      }
-    end
-  }
+  },
 }
