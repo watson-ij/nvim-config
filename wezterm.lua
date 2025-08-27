@@ -1,73 +1,22 @@
-local wezterm = require "wezterm"
-local act = wezterm.action
+-- Pull in the wezterm API
+local wezterm = require 'wezterm'
 
-local config = {}
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
+-- This will hold the configuration.
+local config = wezterm.config_builder()
 
+-- This is where you actually apply your config choices.
 
-config.font = wezterm.font ('CaskaydiaCove Nerd Font')
-if wezterm.hostname() == 'ArchBeasty' then
-  config.font_size = 14
-else
-  config.font_size = 16
-end
-config.color_scheme = 'nightfox'
+-- For example, changing the initial geometry for new windows:
+config.initial_cols = 120
+config.initial_rows = 28
 
--- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
-local function is_vim(pane)
-  -- this is set by the plugin, and unset on ExitPre in Neovim
-  return pane:get_user_vars().IS_NVIM == 'true'
-end
+-- or, changing the font size and color scheme.
+config.font = wezterm.font "SauceCodePro Nerd Font"
+config.font_size = 16
+config.color_scheme = 'Espresso'
 
+config.enable_wayland = false
+config.front_end = "WebGpu"
 
-local direction_keys = {
-  Left = 'n',
-  Down = 'e',
-  Up = 'i',
-  Right = 'o',
-  -- reverse lookup
-  n = 'Left',
-  e = 'Down',
-  i = 'Up',
-  o = 'Right',
-}
-
-local function split_nav(resize_or_move, key)
-  return {
-    key = key,
-    mods = resize_or_move == 'resize' and 'META' or 'CTRL',
-    action = wezterm.action_callback(function(win, pane)
-      if is_vim(pane) then
-        -- pass the keys through to vim/nvim
-        win:perform_action({
-          SendKey = { key = key, mods = resize_or_move == 'resize' and 'META' or 'CTRL' },
-        }, pane)
-      else
-        if resize_or_move == 'resize' then
-          win:perform_action({ AdjustPaneSize = { direction_keys[key], 3 } }, pane)
-        else
-          win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
-        end
-      end
-    end),
-  }
-end
-
-config.keys = {
-    -- move between split panes
-    split_nav('move', 'n'),
-    split_nav('move', 'e'),
-    split_nav('move', 'i'),
-    split_nav('move', 'o'),
-    -- resize panes
-    split_nav('resize', 'n'),
-    split_nav('resize', 'e'),
-    split_nav('resize', 'i'),
-    split_nav('resize', 'o'),
-    --{ key='N', mods='CTRL', action=act.ActivatePaneDirection 'Left'},
-}
-
+-- Finally, return the configuration to wezterm:
 return config
-
