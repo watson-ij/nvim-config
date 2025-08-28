@@ -1,0 +1,32 @@
+return {
+	--  {
+	--    "nvim-neorg/neorg",
+	--    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+	--    version = "*", -- Pin Neorg to the latest stable release
+	--    config = true,
+	--    keys = {
+	--      {"<leader>n", group="neorg", desc="neorg"},
+	--      {"<leader>nn", ":Neorg journal today<CR>", desc="today"},
+	--      {"<leader>nt", ":Neorg journal toc open<CR>", desc="toc"},
+	--      {"<leader>nu", ":Neorg journal toc update<CR>", desc="update"},
+	--      {"<leader>ni", ":Neorg index<CR>", desc="index"},
+	--    },
+	--    opts = {
+	--      load = {
+	-- ["core.defaults"] = {},
+	-- ["core.concealer"] = {},
+	-- ["core.dirman"] = {
+	--   config = {
+	--     workspaces = {
+	--       notes = "~/sync/neorg",
+	--     },
+	--     default_workspace = "notes",
+	--   }
+	-- },
+	-- ["core.journal"] = {
+	--   workspace = "notes",
+	-- },
+	--      }
+	--    }
+	--  }
+}

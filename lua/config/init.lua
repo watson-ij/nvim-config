@@ -10,8 +10,11 @@ local map = vim.keymap.set
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
+map({'i','v','n','s','o'}, '<C-g>', '<Esc>', { noremap=true })
+
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
+opt.conceallevel = 1
 opt.clipboard = "unnamedplus"
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
