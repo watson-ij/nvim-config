@@ -7,4 +7,7 @@ return {
     -- Only one of these is needed.
     "nvim-telescope/telescope.nvim", -- optional
   },
+  keys = {
+    {"<leader>g", ":Neogit<CR>", desc="Neogit"},
+  }
 }
