@@ -14,6 +14,7 @@ map({'i','v','n','s','o'}, '<C-g>', '<Esc>', { noremap=true })
 
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.conceallevel = 1
 opt.clipboard = "unnamedplus"
 opt.shiftround = true -- Round indent
