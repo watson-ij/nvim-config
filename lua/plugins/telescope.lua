@@ -1,5 +1,14 @@
 return {
   {
+    'nvim-telescope/telescope-project.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    keys = {
+      {"<leader>p", ":Telescope project<CR>", desc="project"},
+    }
+  },
+  {
     "nvim-telescope/telescope-file-browser.nvim",
     keys = {
       {"<leader>ff", ":Telescope find_files<CR>", desc="find files"},
