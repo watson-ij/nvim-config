@@ -31,6 +31,12 @@ opt.smartindent = true -- Insert indents automatically
 opt.ignorecase = true -- Ignore case
 opt.spelllang = { "en" }
 
+-- Folding
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false -- Start with folds open
+opt.foldlevel = 99
+
 hostname = vim.fn.hostname()
 
 -- autocmds
