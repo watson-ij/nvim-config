@@ -3,6 +3,7 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     keys = {
       {"<leader>ff", ":Telescope find_files<CR>", desc="find files"},
+      {"<leader>fh", ":Telescope find_files hidden=true<CR>", desc="find hidden"},
       {"<leader>fb", ":Telescope file_browser<CR>", desc="file browser"},
       {"<leader>fg", ":Telescope git_files<CR>", desc="git files"},
       {"<leader>fr", ":Telescope oldfiles<CR>", desc="recent"},
