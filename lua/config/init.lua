@@ -12,6 +12,12 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 
 map({'i','v','n','s','o'}, '<C-g>', '<Esc>', { noremap=true })
 
+-- Split navigation
+map('n', '<C-h>', '<C-w>h', { desc = 'Go to left split' })
+map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower split' })
+map('n', '<C-k>', '<C-w>k', { desc = 'Go to upper split' })
+map('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
+
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

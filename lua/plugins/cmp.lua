@@ -4,6 +4,7 @@ return {
     version = "1.*",
     dependencies = {
       "rafamadriz/friendly-snippets",
+      -- { 'L3MON4D3/LuaSnip', version = 'v2.*' },
       -- add blink.compat to dependencies
       {
 	"saghen/blink.compat",
@@ -19,6 +20,7 @@ return {
       "sources.default",
     },
     opts = {
+      -- snippets = { preset='luasnip' },
       keymap = { preset = "enter", ["<C-y>"] = { "select_and_accept" } },
       sources = {
 	-- adding any nvim-cmp sources here will enable them
