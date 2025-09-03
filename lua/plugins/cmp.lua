@@ -21,7 +21,9 @@ return {
     },
     opts = {
       -- snippets = { preset='luasnip' },
-      keymap = { preset = "enter", ["<C-y>"] = { "select_and_accept" } },
+      -- keymap = { preset = "enter", ["<C-y>"] = { "select_and_accept" } },
+      keymap = { preset = "super-tab", ["<C-y>"] = { "select_and_accept" } },
+      completion = { trigger = { show_in_snippet = false } },
       sources = {
 	-- adding any nvim-cmp sources here will enable them
 	-- with blink.compat
