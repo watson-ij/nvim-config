@@ -8,7 +8,6 @@ return {
   ft = "markdown",
   event = "VeryLazy",
   keys = {
-    {"<leader>n", group="notes", desc="notes"},
     {"<leader>nn", ":Obsidian quick_switch<CR>", desc="note"},
     {"<leader>ng", ":Obsidian tags<CR>", desc="tags"},
     {"<leader>nt", ":Obsidian today<CR>", desc="today"},
