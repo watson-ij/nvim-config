@@ -20,10 +20,26 @@ return {
       "sources.default",
     },
     opts = {
-      -- snippets = { preset='luasnip' },
-      -- keymap = { preset = "enter", ["<C-y>"] = { "select_and_accept" } },
-      keymap = { preset = "super-tab", ["<C-y>"] = { "select_and_accept" } },
-      completion = { trigger = { show_in_snippet = false } },
+      -- Hippie-expand style configuration
+      keymap = {
+        ['<M-/>'] = { 'show', 'insert_next', 'fallback' },
+        ['<M-?>'] = { 'insert_prev' },
+        ["<C-y>"] = { "select_and_accept" },
+        ['<Tab>'] = { 'snippet_forward', 'select_and_accept', 'fallback' },
+        ['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
+      },
+      completion = { 
+        trigger = { 
+          show_in_snippet = false,
+          show_on_keyword = false,
+          show_on_trigger_character = false,
+        },
+        menu = { enabled = true }, -- Show menu once manually triggered
+        list = { 
+          selection = { preselect = false }, 
+          cycle = { from_top = false } 
+        },
+      },
       sources = {
 	-- adding any nvim-cmp sources here will enable them
 	-- with blink.compat
