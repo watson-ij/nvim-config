@@ -32,7 +32,7 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-opt.conceallevel = 1
+opt.conceallevel = 2
 opt.clipboard = "unnamedplus"
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
@@ -56,6 +56,17 @@ opt.foldenable = false -- Start with folds open
 opt.foldlevel = 99
 
 hostname = vim.fn.hostname()
+
+-- osc52 copying for yanking to local clipboard from remotes
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+    local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
+    copy_to_unnamedplus(vim.v.event.regcontents)
+    local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
+    copy_to_unnamed(vim.v.event.regcontents)
+  end,
+})
 
 -- autocmds
 
