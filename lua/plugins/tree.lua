@@ -9,7 +9,7 @@ return {
     },
     lazy = false, -- neo-tree will lazily load itself
     keys = {
-      {"<leader>t", ":Neotree", desc="Neotree"},
+      {"<leader>t", ":Neotree<CR>", desc="Neotree"},
     }
   }
 }
