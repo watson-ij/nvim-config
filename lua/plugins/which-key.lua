@@ -50,5 +50,6 @@ return {
       end,
       desc = "Buffer Local Keymaps (which-key)",
     },
+    {"<leader>l", ":Lazy<CR>", {desc="lazy"} }
   },
 }
