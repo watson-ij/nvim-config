@@ -24,9 +24,15 @@ return {
     terminal = {
       split_width_percentage = 0.5,
       snacks_win_opts = {
-        position = "bottom",
-        height = 0.4,  -- 30% of screen height
+        position = "right",
+        width = 0.5,  -- 30% of screen height
       },
+    },
+    diff_opts = {
+      auto_close_on_accept = true,
+      vertical_split = false,  -- Use horizontal split (top/bottom) instead of vertical
+      open_in_current_tab = true,
+      keep_terminal_focus = true,
     }
   },
 }
