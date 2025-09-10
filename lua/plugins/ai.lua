@@ -30,7 +30,7 @@ return {
     },
     diff_opts = {
       auto_close_on_accept = true,
-      vertical_split = false,  -- Use horizontal split (top/bottom) instead of vertical
+      vertical_split = true,  -- Use horizontal split (top/bottom) instead of vertical
       open_in_current_tab = true,
       keep_terminal_focus = true,
     }

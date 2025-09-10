@@ -29,6 +29,12 @@ map('n', '<C-j>', '<C-w>j', { desc = 'Go to lower split' })
 map('n', '<C-k>', '<C-w>k', { desc = 'Go to upper split' })
 map('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
 
+-- Terminal mode split navigation
+map('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Go to left split from terminal' })
+map('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Go to lower split from terminal' })
+map('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Go to upper split from terminal' })
+map('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Go to right split from terminal' })
+
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
