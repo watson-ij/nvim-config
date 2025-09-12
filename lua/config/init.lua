@@ -32,7 +32,29 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Go to right split' })
 -- Terminal mode split navigation
 map('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Go to left split from terminal' })
 map('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Go to lower split from terminal' })
-map('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Go to upper split from terminal' })
+map('t', '<C-k>', function()
+  -- Check if there's a window above the current one
+  local current_win = vim.api.nvim_get_current_win()
+  local current_row = vim.api.nvim_win_get_position(current_win)[1]
+  
+  -- Look for windows above the current one
+  local has_upper_split = false
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local win_row = vim.api.nvim_win_get_position(win)[1]
+    if win_row < current_row then
+      has_upper_split = true
+      break
+    end
+  end
+  
+  if has_upper_split then
+    -- Exit terminal mode and move to upper split
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-\\><C-n><C-w>k', true, false, true), 'n', false)
+  else
+    -- No upper split exists, send Ctrl-K to terminal (kill line)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-k>', true, false, true), 't', false)
+  end
+end, { desc = 'Go to upper split from terminal or send Ctrl-K' })
 map('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Go to right split from terminal' })
 
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua

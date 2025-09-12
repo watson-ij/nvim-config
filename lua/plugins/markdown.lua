@@ -1,8 +1,7 @@
 return {
   {
-    "markdown-table-formatter",
     name = "markdown-table-formatter",
-    dir = vim.fn.stdpath("config"),
+    dir = vim.fn.stdpath("config") .. "/lua",
     ft = { "markdown", "md" },
     config = function()
       require("markdown-table-formatter").setup()
